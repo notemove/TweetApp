@@ -20,6 +20,13 @@ class PostsController < ApplicationController
 
   # createアクション
   def create
+    # contentが「入力データ」であるインスタンスを作成
+    @post = Post.new(content:params[:content])
+    # データベースへセーブ
+    @post.save
+
+    # 指定した URL（投稿一覧） に転送
+    redirect_to("/posts/index")
   end
 
 end

@@ -5,7 +5,9 @@
       <%= form_tag("/posts/create") do %>
         <div class="form">
             <div class="form-body">
-                <textarea></textarea>
+                <!-- 入力データをcreateアクションに伝える-->
+                <!-- name属性の値をキーとしたハッシュがRailsに送られる-->
+                <textarea name="content"></textarea>
                 <input type="submit" value="投稿">
             </div>
       </div>

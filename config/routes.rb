@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'posts/index'
+  get 'posts/index' => "posts#index"
 
   # 下記１行はshowよりも上に書く
   get 'posts/new' => "posts#new"
