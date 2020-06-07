@@ -10,6 +10,21 @@
   </head>
 
   <body>
+
+    <!-- top,about,indexにあった共通ヘッダーをここにまとめる -->
+    <header>
+      <div class="header-logo">
+        <a href="/">TweetApp</a>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <a href="/about">TweetAppとは</a>
+        </li>
+      </ul>
+    </header>
+
+    <!-- 各ビューファイル（top,about,index）は以下の yieldに代入され -->
+    <!-- application.html.erbの一部となる -->
     <%= yield %>
   </body>
 </html>
