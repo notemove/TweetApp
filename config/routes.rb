@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   get 'posts/index'
+
+  # 下記１行はshowよりも上に書く
+  get 'posts/new' => "posts#new"
+
   # 下記１行はindexよりも下に書く
   get 'posts/:id' => 'posts#show'
 
