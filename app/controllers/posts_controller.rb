@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def index
     #  @をつけることでビューファイルで参照可能になる
     # データベースからすべてのデータを取り出す
-    @posts = Post.all
+    @posts = Post.all.order(created_at::desc)
     
   end
 
