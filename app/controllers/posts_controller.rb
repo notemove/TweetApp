@@ -18,4 +18,8 @@ class PostsController < ApplicationController
   def new
   end
 
+  # createアクション
+  def create
+  end
+
 end

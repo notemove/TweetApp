@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   # 下記１行はshowよりも上に書く
   get 'posts/new' => "posts#new"
 
+  # 入力フォームの値を受け取るときは post を使う
+  # PostモデルのPostとは無関係
+  post 'posts/create' => "posts#create"
+
   # 下記１行はindexよりも下に書く
   get 'posts/:id' => 'posts#show'
 
