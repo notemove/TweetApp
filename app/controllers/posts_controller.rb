@@ -5,4 +5,9 @@ class PostsController < ApplicationController
     @posts = Post.all
     
   end
+
+  # showアクション
+  def show
+  end
+
 end
