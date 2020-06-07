@@ -10,7 +10,8 @@ class PostsController < ApplicationController
   def show
     # localhost:3000/posts/1 を指定すると、
     # {id:1}というハッシュが変数paramsに入っている。
-    @id = params[:id]
+    # @id = params[:id]
+    @post = Post.find_by(id:params[:id])
   end
 
 end
