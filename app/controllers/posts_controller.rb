@@ -8,6 +8,9 @@ class PostsController < ApplicationController
 
   # showアクション
   def show
+    # localhost:3000/posts/1 を指定すると、
+    # {id:1}というハッシュが変数paramsに入っている。
+    @id = params[:id]
   end
 
 end
