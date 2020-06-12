@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  # 注釈
+  # get : データベースを変更しないアクション
+  # post : データベースを変更するアクション
+
+
   get 'posts/index' => "posts#index"
 
   # 下記１行はshowよりも上に書く
@@ -17,6 +23,8 @@ Rails.application.routes.draw do
 
 
   post 'posts/:id/update' => "posts#update"
+
+  post 'posts/:id/destroy' => "posts#destroy"
 
   get '/' => 'home#top'
   get 'about'=>'home#about'
