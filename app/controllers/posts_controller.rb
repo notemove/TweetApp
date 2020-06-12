@@ -34,4 +34,16 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
   end
 
+  def update
+    # URLのidから投稿データを取得する
+    @post = Post.find_by(id: params[:id])
+    #取得した投稿データのcontentの値を上書きする
+    @post.content = params[:content]
+    #上書きした投稿データを保存する
+    @post.save
+
+    # 投稿一覧ページにリダイレクトさせるのでビューは不要
+    redirect_to("/posts/index")
+  end
+
 end
