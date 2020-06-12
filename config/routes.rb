@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   # 下記１行はshowよりも上に書く
   get 'posts/new' => "posts#new"
 
+  # 編集したい投稿のidをURLに含ませる
+  # 例：localhost:3000/posts/1/edit
+  get "posts/:id/edit" => "posts#edit"
+
   # 入力フォームの値を受け取るときは post を使う
   # PostモデルのPostとは無関係
   post 'posts/create' => "posts#create"

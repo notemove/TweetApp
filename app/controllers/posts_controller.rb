@@ -29,4 +29,9 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
+  def edit
+    # {id: 1}というハッシュが変数 params に入っている
+    @post = Post.find_by(id: params[:id])
+  end
+
 end
