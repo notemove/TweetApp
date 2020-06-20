@@ -40,10 +40,15 @@ class PostsController < ApplicationController
     #取得した投稿データのcontentの値を上書きする
     @post.content = params[:content]
     #上書きした投稿データを保存する
-    @post.save
+    if @post.save
+      redirect_to("/posts/index")
+    else
+      redirect_to("/posts/#{@post.id}/edit")
+    end
+    
 
     # 投稿一覧ページにリダイレクトさせるのでビューは不要
-    redirect_to("/posts/index")
+    # redirect_to("/posts/index")
   end
 
   def destroy
