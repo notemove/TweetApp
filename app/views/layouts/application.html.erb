@@ -29,6 +29,12 @@
       </ul>
     </header>
 
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <!-- 各ビューファイル（top,about,index）は以下の yieldに代入され -->
     <!-- application.html.erbの一部となる -->
     <%= yield %>
