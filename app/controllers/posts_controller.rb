@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   # newアクション
   def new
+    @post = Post.new
   end
 
   # createアクション
@@ -23,10 +24,14 @@ class PostsController < ApplicationController
     # contentが「入力データ」であるインスタンスを作成
     @post = Post.new(content:params[:content])
     # データベースへセーブ
-    @post.save
-
-    # 指定した URL（投稿一覧） に転送
-    redirect_to("/posts/index")
+    if @post.save
+      flash[:notice] = "投稿を作成しました"
+      # 指定した URL（投稿一覧） に転送
+      redirect_to("/posts/index")
+    else
+      render("posts/new")
+    end
+    
   end
 
   def edit
@@ -48,7 +53,7 @@ class PostsController < ApplicationController
       # 失敗
       # editアクションを経由せずに posts/edit.html.erbが表示されるようにすると
       # 入力した文字が再表示される。
-      render("/posts/edit")
+      render("posts/edit")
       # editアクションを経由すると入力文字がもとの状態に戻ってしまう。
       # redirect_to("/posts/#{@post.id}/edit")
     end
@@ -61,6 +66,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id:params[:id])
     @post.destroy
+    flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
 
