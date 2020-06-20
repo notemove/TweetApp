@@ -41,9 +41,15 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     #上書きした投稿データを保存する
     if @post.save
+      # 成功
       redirect_to("/posts/index")
     else
-      redirect_to("/posts/#{@post.id}/edit")
+      # 失敗
+      # editアクションを経由せずに posts/edit.html.erbが表示されるようにすると
+      # 入力した文字が再表示される。
+      render("/posts/edit")
+      # editアクションを経由すると入力文字がもとの状態に戻ってしまう。
+      # redirect_to("/posts/#{@post.id}/edit")
     end
     
 
