@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
+  get 'users/index' => "users#index"
+
+  get 'users/:id' => "users#show"
   # 注釈
   # get : データベースを変更しないアクション
   # post : データベースを変更するアクション
