@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
-    // 画像が送信されているときのみ
+    # 画像が送信されているときのみ
     if params[:image]
       @user.image_name = "#{@user.id}.jpg"
       image = params[:image]
@@ -46,5 +46,7 @@ class UsersController < ApplicationController
       render("users/edit")
     end
   end
+
+
 
 end
