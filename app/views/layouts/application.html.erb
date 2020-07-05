@@ -14,7 +14,11 @@
     <!-- top,about,indexにあった共通ヘッダーをここにまとめる -->
     <header>
       <div class="header-logo">
-        <%= link_to("TweetApp","/") %>
+        <% if @current_user %>
+          <%= link_to("TweetApp", "/posts/index") %>
+        <% else %>
+          <%= link_to("TweetApp", "/") %>
+        <% end %>
       </div>
       <ul class="header-menus">
         
