@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_action :authenticate_user
+  
   def index
     #  @をつけることでビューファイルで参照可能になる
     # データベースからすべてのデータを取り出す
